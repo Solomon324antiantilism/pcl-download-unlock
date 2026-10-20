@@ -1,0 +1,12 @@
+dist/
+artifacts/
+TestResults/
+*.pdb
+*.bak
+*.tmp
+transaction.json
+original.exe
+patched.exe
+.vs/
+.vscode/
+!lib/dnlib.dll
