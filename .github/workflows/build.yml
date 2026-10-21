@@ -1,0 +1,25 @@
+name: Windows build and smoke tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Build offline and run fixture-free checks
+        shell: powershell
+        run: .\tests\run-smoke-tests.ps1 -WorkDirectory "$env:RUNNER_TEMP\PclUnlockSmoke"
+      - name: Upload the single EXE
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: pcl-download-unlock-windows-x86
+          path: dist/*.exe
+          if-no-files-found: error
