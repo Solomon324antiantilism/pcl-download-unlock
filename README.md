@@ -22,13 +22,21 @@
 
 ## 下载与使用
 
-1. 在 [Releases](https://github.com/Solomon324antiantilism/pcl-download-unlock/releases) 下载 `PCL下载恢复工具.exe`。可使用同页的 `SHA256SUMS.txt` 核对文件。
+1. 在 [v1.0.1 Release](https://github.com/Solomon324antiantilism/pcl-download-unlock/releases/tag/v1.0.1) 下载 [PCL-Download-Unlock-v1.0.1.exe](https://github.com/Solomon324antiantilism/pcl-download-unlock/releases/download/v1.0.1/PCL-Download-Unlock-v1.0.1.exe)。界面仍为中文；普通用户无需下载源码或 Markdown 附件。使用同页的 `SHA256SUMS.txt` 核对文件；标为 `LEGACY` 的旧清单使用了发布前的中文文件名，不应再用于当前附件。
 2. 关闭要修改的 PCL 启动器；不需要强制结束正在运行的 Minecraft 游戏。
 3. 双击工具。自动查找后选择目标，或点击“选择 PCL 文件”；多个候选不会默认选中目标。
 4. 确认路径和版本，点击“恢复下载”，等待完成。工具会先备份、校验，再替换。
 5. 打开 PCL，进入“下载”页面测试。要撤销修改，关闭 PCL 后再次运行工具，选择同一安装并点击“还原备份”。
 
 备份保存在 PCL 同一目录，名称为 `原EXE名.before-download-unlock-日期-标识.bak`。请保留它；不要将其他程序的备份手动改名后套用。工具不会覆盖既有备份或强制结束启动器。
+
+附件命名：`PCL-Download-Unlock-v1.0.1.exe` 是可运行工具，`pcl-download-unlock-v1.0.1-source.zip` 是含固定依赖的源码包，`SHA256SUMS.txt` 是按实际附件名生成的校验清单。GitHub 自动生成的 `Source code (zip/tar.gz)` 为标签快照。EXE 的 SHA256 应为 `AEB87A6611E607E78CCFAE3813A8AB13445A26E845444C3AE18A051D2EEBC566`。
+
+可在 PowerShell 中执行以下命令，将结果与 `SHA256SUMS.txt` 中对应文件的一行比较：
+
+```powershell
+Get-FileHash -Algorithm SHA256 -LiteralPath .\PCL-Download-Unlock-v1.0.1.exe
+```
 
 ## 系统要求
 
